@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library management system</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="newlogin.css">
+
+    <style>
+      #background {
+        min-height: 1050px;
+        width: 100%;
+      }
+      #top {
+        height: 35px;
+        width: 100%;
+        background: #2c7ad6;
+        line-height: 35px;
+        padding: 0px 20px 9px 100px;
+        box-sizing: border-box;
+        word-spacing: 10px;
+      }
+      /* Navbar Container */
+      #menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f4f4f4;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Logo Section */
+      #logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      #logo b {
+        color: #2c7ad6; /* Highlight color for the logo */
+      }
+
+      /* Menu Section */
+      #menu1 ul {
+        display: flex;
+        gap: 20px; /* Adds space between items */
+        list-style: none; /* Removes bullet points */
+      }
+
+      #menu1 ul a {
+        text-decoration: none; /* Removes underline from links */
+        color: #333;
+        font-size: 16px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      #menu1 ul a li {
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Adds spacing between icons and text */
+        cursor: pointer;
+      }
+
+      #menu1 ul a:hover {
+        color: #2c7ad6; /* Hover color effect */
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        #menu {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        #menu1 ul {
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 10px;
+        }
+      }
+      #menu1 LI {
+        height: 45px;
+        width: 130px;
+
+        text-align: center;
+        display: inline-block;
+        line-height: 45px;
+        transform: translateY(-5px);
+        color: black;
+        font-size: 20px;
+      }
+      #menu1 LI:hover {
+        background: #2c7ad6;
+        color: white;
+        transition: all ease 1s;
+        border-radius: 3px;
+      }
+
+      #slider {
+        height: 640px;
+        width: 100%;
+        background-color: #333;
+        background-size: cover;
+        background-attachment: fixed;
+        /* animation-name:slider;
+animation-duration: 20s;
+animation-iteration-count:infinite ;
+animation-delay: 3s;*/
+      }
+/*       
+@keyframes slider{
+
+from{
+    background:url(image/4.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+to{
+    background:url(image/4.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+} 
+} */
+
+      #x {
+        height: 640px;
+        width: 60%;
+        background: rgba(0, 0, 0, 0.4);
+        float: left;
+        font-size: 41px;
+        color: white;
+        text-align: center;
+        padding-top: 250px;
+        box-sizing: border-box;
+      }
+      #y {
+        height: 640px;
+        width: 40%;
+        background: rgba(0, 0, 0, 0.4);
+        float: left;
+      }
+
+      #l {
+        height: 450px;
+        width: 60%;
+        background: rgba(255, 255, 255, 0.6);
+        float: left;
+        margin: 90px;
+        border-radius: 7px;
+      }
+      #l:hover {
+        background: linear-gradient(
+          45deg,
+          rgba(50, 177, 40, 0.6),
+          rgba(255, 255, 255, 0.6)
+        );
+      }
+
+      #student {
+        margin: 50px 50px;
+        color: blue;
+      }
+      #Teacher {
+        margin: 50px 50px;
+        color: white;
+      }
+      .t {
+        height: 40px;
+        width: 100%;
+        border: 2px solid green;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+      #down {
+        /* height: 300px; */
+        width: 100%;
+        margin-top: 10px;
+        background: #2c7ad6;
+        text-align: center;
+        padding-top: 10px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+  
+      <div id="menu">
+        <div id="logo">LIBRARY<b style="color: #2c7ad6">ZONE</b></div>
+        <div id="menu1">
+          <ul>
+            <a href="index.html"><li class="fa fa-home">Home</li></a>
+            <a href="gallery.html"><li class="fa fa-image">Gallery</li></a>
+            <a href="admin.html"><li class="fa fa-user">USER Login</li></a>
+            <a href="register.html"><li class="fa fa-registered">Register</li></a>
+            <a href="LoginBook.html"><li class="fa fa-user">Login</li></a>
+          </ul>
+        </div>
+      </div>
+<!-- 
+      <div id="slider">
+        <div id="x">
+          WELCOME TO <b style="color: blue">LIBRARYZONE</b>
+          <p style="font-size: 15px">Where You Can Read Your Favorite Books</p>
+        </div>
+
+        <div id="y">
+          <div id="l">
+            <h1 style="text-align: center; color: #2c7ad6">ADMIN LOGIN</h1>
+            <div id="student">
+              USER NAME <br /><input type="text" class="t" /><br />
+              PASSWORD <br /><input type="text" class="t" /><br />
+
+              <a href="SearchBook.html"
+                ><button
+                  style="
+                    border: none;
+                    width: 103%;
+                    height: 30px;
+                    background-color: #2c7ad6;
+                  "
+                >
+                  Login
+                </button></a
+              >
+              <a href="#" style="color: blue; text-decoration: none"
+                ><p>forget password</p></a
+              >
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="container" id="container">
+        <!-- Sign In Form -->
+        <div class="form-container sign-in-container">
+            <form method="POST">
+                <h1>Sign In</h1>
+                <span>or use your account</span>
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <a href="reset_password.php">Forgot your password?</a>
+                <button type="submit" name="login">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container sign-up-container">
+            <form method="POST">
+                <h1>Create Account</h1>
+                <input type="text" name="username" placeholder="Name" required="">
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <button type="submit" name="register">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back to 
+                        LibraryLens!</h1>
+                    <p>To keep connected with us, please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- footer -->
+      <div id="down">
+        <a
+          href="http://facebook.com"
+          class="fa fa-facebook"
+          style="text-decoration: none; padding: 10px 12px; color: white"
+        ></a>
+        <a
+          href="http://instagram.com"
+          class="fa fa-instagram"
+          style="text-decoration: none; padding: 10px 12px; color: white"
+        ></a>
+        <a
+          href="http://twitter.com"
+          class="fa fa-twitter"
+          style="text-decoration: none; padding: 10px 12px; color: white"
+        ></a>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const showRegisterButton = document.getElementById('showRegister');
+            const showLoginButton = document.getElementById('showLogin');
+            const container = document.getElementById('container');
+
+            signUpButton.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+
+            signInButton.addEventListener('click', () => {
+                container.classList.remove("right-panel-active");
+            });
+
+            showRegisterButton.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+
+            showLoginButton.addEventListener('click', () => {
+                container.classList.remove("right-panel-active");
+            });
+        });
+    </script>       
+
+  </body>
+</html>

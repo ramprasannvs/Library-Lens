@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery Data</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+      }
+
+      /* Navbar */
+      #menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background-color: #007bff; /* Blue background */
+        color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      #logo {
+        font-size: 32px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 2px;
+      }
+
+      #logo b {
+        color: #FF4B2B;
+      }
+
+      #menu1 ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+
+      #menu1 ul a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        transition: color 0.3s ease, transform 0.3s ease;
+        text-transform: uppercase;
+        padding: 10px;
+      }
+
+      #menu1 ul a:hover {
+        color: #FF4B2B;
+        transform: scale(1.1);
+      }
+
+      /* Shop Section */
+      .shop-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px;
+        padding: 40px 20px;
+      }
+
+      .box {
+        width: 22%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .box-img {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        transition: transform 0.4s ease;
+      }
+
+      .box-img:hover {
+        transform: scale(1.1);
+      }
+
+      .box-content h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #333;
+        text-align: center;
+      }
+
+      .box-content p {
+        color: #007185;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+
+      .box-content p:hover {
+        color: #FF4B2B;
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      #down {
+        background-color: #222;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+      }
+
+      #down a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 24px;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      #down a:hover {
+        color: #FF4B2B;
+        transform: scale(1.1);
+      }
+
+      .footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+        padding: 15px;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+
+      /* Responsive Styles */
+      @media screen and (max-width: 768px) {
+        .shop-section {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .box {
+          width: 90%;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="menu">
+      <div id="logo">LIBRARY<b style="color: #FF4B2B">LENS</b></div>
+      <div id="menu1">
+        <ul>
+          <a href="index.html"><li class="fa fa-home">Home</li></a>
+          <a href="gallery.html"><li class="fa fa-image">Gallery</li></a>
+          <a href="admin.html"><li class="fa fa-user">Admin Login</li></a>
+          <a href="project.html"><li class="fa fa-user">User Login</li></a>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Shop Section -->
+    <div class="shop-section">
+      <div class="box">
+        <div class="box-content">
+          <h2>Mystery/Thriller</h2>
+          <div class="box-img" style="background-image: url('1.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Adventure</h2>
+          <div class="box-img" style="background-image: url('2.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Horror</h2>
+          <div class="box-img" style="background-image: url('3.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Medicines</h2>
+          <div class="box-img" style="background-image: url('4.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Philosophy</h2>
+          <div class="box-img" style="background-image: url('5.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>History</h2>
+          <div class="box-img" style="background-image: url('6.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Self-Help</h2>
+          <div class="box-img" style="background-image: url('7.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Autobiography</h2>
+          <div class="box-img" style="background-image: url('8.jfif');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Art & Design</h2>
+          <div class="box-img" style="background-image: url('9.jpg');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Travel</h2>
+          <div class="box-img" style="background-image: url('10.jpg');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Programming</h2>
+          <div class="box-img" style="background-image: url('11.jpg');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <h2>Religion & Spirituality</h2>
+          <div class="box-img" style="background-image: url('12.jpg');"></div>
+          <p>See more</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="down">
+      <a href="http://www.facebook.com" class="fa fa-facebook"></a>
+      <a href="http://www.instagram.com" class="fa fa-instagram"></a>
+      <a href="http://www.twitter.com" class="fa fa-twitter"></a>
+    </div>
+    <div class="footer">www.librarylens.com</div>
+  </body>
+</html>

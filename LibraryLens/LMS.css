@@ -1,0 +1,281 @@
+#background {
+  min-height: 1050px;
+  width: 100%;
+}
+#top {
+  height: 35px;
+  width: 100%;
+  background: #2c7ad6;
+  line-height: 35px;
+  padding: 0px 20px 9px 100px;
+  box-sizing: border-box;
+  word-spacing: 10px;
+}
+/* Navbar Container */
+#menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Section */
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+#logo b {
+  color: #2c7ad6; /* Highlight color for the logo */
+}
+
+/* Menu Section */
+#menu1 ul {
+  display: flex;
+  gap: 20px; /* Adds space between items */
+  list-style: none; /* Removes bullet points */
+}
+
+#menu1 ul a {
+  text-decoration: none; /* Removes underline from links */
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#menu1 ul a li {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adds spacing between icons and text */
+  cursor: pointer;
+}
+
+#menu1 ul a:hover {
+  color: #2c7ad6; /* Hover color effect */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #menu1 ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+#menu1 LI {
+  height: 45px;
+  width: 130px;
+  text-align: center;
+  display: inline-block;
+  line-height: 45px;
+  transform: translateY(-5px);
+  color: black;
+  font-size: 20px;
+}
+#menu1 LI:hover {
+  background: #2c7ad6;
+  color: white;
+  transition: all ease 1s;
+  border-radius: 4px;
+}
+
+/*#slider {
+  height: 640px;
+  width: 100%;
+  background: url(image/4.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#x {
+  height: 640px;
+  width: 40%;
+  background: rgba(0, 0, 0, 0.4);
+  float: left;
+  font-size: 41px;
+  color: white;
+  text-align: center;
+  padding-top: 250px;
+  box-sizing: border-box;
+}
+
+#y {
+  height: 640px;
+  width: 30%;
+  background: rgba(0, 0, 0, 0.4);
+  float: left;
+}
+#z {
+  height: 640px;
+  width: 30%;
+  background: rgba(0, 0, 0, 0.4);
+  float: left;
+}
+#l {
+  height: 450px;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.6);
+  float: left;
+  margin: 90px;
+  border-radius: 7px;
+}
+#l:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(50, 177, 40, 0.6),
+    rgba(255, 255, 255, 0.6)
+  );
+}
+
+#r {
+  height: 450px;
+  width: 80%;
+  background: rgba(44, 122, 214, 0.6);
+  float: left;
+  margin: 90px auto;
+  border-radius: 7px;
+}
+#r:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(50, 177, 40, 0.6),
+    rgba(255, 255, 255, 0.6)
+  );
+}
+#student {
+  margin: 50px 50px;
+  color: blue;
+}
+#Teacher {
+  margin: 50px 50px;
+  color: white;
+}
+.t {
+  height: 40px;
+  width: 100%;
+  border: 2px solid green;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+*/
+/* Slider Section */
+#slider {
+  display: flex; /* Makes the slider a flex container */
+  align-items: center;
+  justify-content: space-evenly;
+  height: 640px;
+  width: 97%;
+  /* background: url("image/4.jpg") no-repeat center center/cover; */
+  background-color: #333;
+  background-attachment: fixed;
+  padding: 20px; /* Adds some padding around content */
+}
+
+/* Welcome Text */
+#x {
+  flex: 1; /* Left section takes available space */
+  color: white;
+  text-align: left;
+  padding: 20px;
+  font-size: 36px;
+  line-height: 1.5;
+}
+
+#x p {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* Image Section */
+#images-container {
+  flex: 1; /* Right section takes available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rounded-image {
+  height: 600px; /* Set the height to 600px */
+  width: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Rounded shape */
+  object-fit: cover;
+  /* border: 5px solid #fff; */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rounded-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #slider {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    height: auto;
+  }
+
+  #x {
+    font-size: 28px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  #x p {
+    font-size: 14px;
+  }
+
+  #images-container {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .rounded-image {
+    height: 300px; /* Reduce image height on smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #x {
+    font-size: 22px;
+    padding: 10px;
+  }
+
+  .rounded-image {
+    height: 200px; /* Further reduce image height for small screens */
+  }
+}
+
+#down {
+  /* height: 300px; */
+  width: 100%;
+  margin-top: 10px;
+  background: #2c7ad6;
+  text-align: center;
+  padding-top:2px;
+  color: white;
+}
+.footer {
+  height: 20px;
+  width: 100%;
+  background: black;
+  color: white;
+  text-align: center;
+}

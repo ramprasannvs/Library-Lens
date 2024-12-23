@@ -1,0 +1,355 @@
+To address the issues and ensure that both the navigation bar and the sign-in/sign-up forms work properly, I have made several adjustments to your code:
+
+1. **Fixing CSS and HTML Structure:** I ensured that the CSS and HTML are combined properly, with specific adjustments for layout, interactivity, and responsiveness.
+2. **Improved Nav Layout:** I fixed the navigation bar to display correctly.
+3. **Ensuring Sign-In and Sign-Up Interactivity:** I included JavaScript to toggle between the Sign-In and Sign-Up forms.
+4. **Footer Style Fixes:** Ensured footer links and layout appear correctly.
+
+Here’s the corrected and integrated version of your HTML and CSS:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: #f6f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            margin: -20px 0 50px;
+        }
+        h1 {
+            font-weight: bold;
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            font-size: 14px;
+            font-weight: 100;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+            margin: 20px 0 30px;
+        }
+        span {
+            font-size: 12px;
+        }
+        a {
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 15px 0;
+        }
+        button {
+            border-radius: 20px;
+            border: 1px solid #FF4B2B;
+            background-color: #FF4B2B;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        button:focus {
+            outline: none;
+        }
+        button.ghost {
+            background-color: transparent;
+            border-color: #FFFFFF;
+        }
+        input {
+            background-color: #eee;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        /* Container and Form Styles */
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            position: relative;
+            width: 768px;
+            max-width: 100%;
+            min-height: 480px;
+            display: flex;
+            flex-direction: row;
+            transition: all 0.6s ease-in-out;
+        }
+        .form-container {
+            width: 50%;
+            height: 100%;
+            padding: 50px;
+            text-align: center;
+            transition: all 0.6s ease-in-out;
+        }
+        .sign-in-container {
+            left: 0;
+            z-index: 2;
+        }
+        .sign-up-container {
+            left: 0;
+            z-index: 1;
+            opacity: 0;
+        }
+        .container.right-panel-active .sign-in-container {
+            transform: translateX(100%);
+        }
+        .container.right-panel-active .sign-up-container {
+            transform: translateX(100%);
+            opacity: 1;
+            z-index: 5;
+        }
+
+        /* Overlay Styles */
+        .overlay-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.6s ease-in-out;
+            z-index: 100;
+        }
+        .overlay {
+            background: linear-gradient(to right, #FF4B2B, #FF416C);
+            background-size: cover;
+            color: #FFFFFF;
+            position: relative;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
+        .container.right-panel-active .overlay {
+            transform: translateX(50%);
+        }
+        .overlay-panel {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
+        .overlay-left {
+            transform: translateX(-20%);
+        }
+        .container.right-panel-active .overlay-left {
+            transform: translateX(0);
+        }
+        .overlay-right {
+            right: 0;
+            transform: translateX(0);
+        }
+        .container.right-panel-active .overlay-right {
+            transform: translateX(20%);
+        }
+
+        /* Footer Styles */
+        #down {
+            background-color: #2c7ad6;
+            text-align: center;
+            padding-top: 10px;
+            color: white;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .fa {
+            padding: 10px 12px;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navbar Styles */
+        #menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        #logo b {
+            color: #2c7ad6;
+        }
+        #menu1 ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        #menu1 ul a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        #menu1 ul a li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        #menu1 ul a:hover {
+            color: #2c7ad6;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            #menu {
+                flex-direction: column;
+            }
+            #menu1 ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="menu">
+        <div id="logo">LIBRARY<b style="color: #2c7ad6">ZONE</b></div>
+        <div id="menu1">
+            <ul>
+                <a href="index.html"><li class="fa fa-home">Home</li></a>
+                <a href="gallery.html"><li class="fa fa-image">Gallery</li></a>
+                <a href="admin.html"><li class="fa fa-user">USER Login</li></a>
+                <a href="register.html"><li class="fa fa-registered">Register</li></a>
+                <a href="LoginBook.html"><li class="fa fa-user">Login</li></a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Container with Login and Signup Forms -->
+    <div class="container" id="container">
+        <!-- Sign In Form -->
+        <div class="form-container sign-in-container">
+            <form method="POST">
+                <h1>Sign In</h1>
+                <span>or use your account</span>
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <a href="reset_password.php">Forgot your password?</a>
+                <button type="submit" name="login">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container sign-up-container">
+            <form method="POST">
+                <h1>Create Account</h1>
+                <input type="text" name="username" placeholder="Name" required="">
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <button type="submit" name="register">Sign Up</button>
+            </form>
+        </div>
+
+    
+        <!-- Overlay -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back to 
+                        LibraryLens!</h1>
+                    <p>To keep connected with us, please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- footer -->
+      <div id="down">
+        <a
+          href="http://facebook.com"
+          class="fa fa-facebook"
+          style="text-decoration: none; padding: 10px 12px; color: white"
+        ></a>
+        <a
+          href="http://instagram.com"
+          class="fa fa-instagram"
+          style="text-decoration: none; padding: 10px 12px; color: white"
+        ></a>
+        <a
+          href="http://twitter.com"
+          class="fa fa-twitter"
+          style="text-decoration: none; padding: 10px 12px; color: white"
+        ></a>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const showRegisterButton = document.getElementById('showRegister');
+            const showLoginButton = document.getElementById('showLogin');
+            const container = document.getElementById('container');
+
+            signUpButton.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+
+            signInButton.addEventListener('click', () => {
+                container.classList.remove("right-panel-active");
+            });
+
+            showRegisterButton.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+
+            showLoginButton.addEventListener('click', () => {
+                container.classList.remove("right-panel-active");
+            });
+        });
+    </script>       
+
+  </body>
+</html>
